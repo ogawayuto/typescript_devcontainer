@@ -1,0 +1,101 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/docker-from-docker-compose
+{
+    "name": "Docker from Docker Compose",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace",
+    // Use this environment variable if you need to bind mount your local source code into a new container.
+    // "mounts": [
+    //     {
+    //     "type": "volume",
+    //     "source": "poetry-cache",
+    //     "target": "/home/vscode/.cache/pypoetry"
+    //     },
+    //     {
+    //     "type": "volume",
+    //     "source": "venv-cache",
+    //     "target": "${containerWorkspaceFolder}/.venv"
+    //     }
+    // ],
+    "features": {
+    },
+    "containerEnv": {
+    },
+    "remoteEnv": {
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+        "YARN_CACHE_FOLDER": "/workspace/.cache",
+        "NODE_ENV": "development"
+    },
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                "EditorConfig.EditorConfig",
+                "hashicorp.terraform",
+                "ms-azuretools.vscode-docker",
+                "oderwat.indent-rainbow",
+                "shardulm94.trailing-spaces",
+                "donjayamanne.githistory",
+                "pkief.material-icon-theme",
+                "christian-kohler.path-intellisense",
+                "aaron-bond.beter-comments",
+                "mechatroner.rainbow-csv",
+                "usernamehw.errorlens",
+                "streetsidesoftware.code-spell-checker",
+                "ziyasal.vscode-open-in-github",
+                "tamasfe.even-better-toml",
+                // project specific
+                "yoavbls.pretty-ts-errors",
+                "pmneo.tsimporter",
+                "jasonnutter.search-node-modules",
+                "biomejs.biome",
+                "orta.vscode-jest"
+                
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": { "zsh": { "path": "/usr/bin/zsh" } },
+                "dotfiles.repository": "https://github.com/ogawayuto/dotfiles.git",
+                "dotfiles.targetPath": "~/.dotfiles",
+                "dotfiles.installCommand": "install.sh",
+                "dev.containers.copyGitConfig": true,
+                "files.exclude": {
+                },
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestArgs": [
+                    "tests"
+                ],
+                "[javascript]": {
+                    "editor.defaultFormatter": "biomejs.biome"
+                },
+                "[typescript]": {
+                    "editor.defaultFormatter": "biomejs.biome"
+                },
+                "jest.runMode": "on-demand",
+                "jest.nodeEnv": {
+                "NODE_OPTIONS": "--experimental-vm-modules"
+                },
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave":{
+                    "source.organizeImports.biome": "explicit"
+                },
+                "extensions.ignoreRecommendations": false
+                
+            }
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    "onCreateCommand": "sh .devcontainer/onCreate.sh",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "sh .devcontainer/postCreate.sh",
+    "postAttachCommand": "sh .devcontainer/postAttach.sh",
+    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "node"
+}

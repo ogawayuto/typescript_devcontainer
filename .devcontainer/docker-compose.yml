@@ -1,0 +1,13 @@
+services:
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        - USERNAME=node
+        - USER_UID=$UID
+        - USER_GID=$GID
+    volumes:
+      - ..:/workspace:cached
+    tty: true
+    user: node
