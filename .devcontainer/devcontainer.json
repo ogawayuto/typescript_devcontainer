@@ -66,11 +66,7 @@
                 "dev.containers.copyGitConfig": true,
                 "files.exclude": {
                 },
-                "python.testing.pytestEnabled": true,
-                "python.testing.unittestEnabled": false,
-                "python.testing.pytestArgs": [
-                    "tests"
-                ],
+                "jest.shell": "/usr/bin/zsh",
                 "[javascript]": {
                     "editor.defaultFormatter": "biomejs.biome"
                 },
