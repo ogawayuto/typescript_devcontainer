@@ -23,27 +23,6 @@ vscodeの設定を追加する
 ### spellcheckの設定
 .vscode/settings.jsonにspellcheckの設定を追加する
 
-## Python
-### precommitの設定方法
-1. hooks の更新
-```bash
-pre-commit update
-```
-2. pre-commitの設定
-```bash
-pre-commit install
-```
-3. pre-commitのcommit-msgの設定
-```bash
-pre-commit install --hook-type commit-msg
-```
-
-### project nameの変更
-python_project/ のディレクトリを変更する
-pyproject.tomlのnameを変更する
-
-### ruffの設定
-ruff.tomlに無視するファイルやルールなどの設定を追加する
 
 ## TypeScript
 ### userIDとgroupIDの設定
@@ -60,5 +39,5 @@ yarn add や package.jsonを用いてパッケージを追加する
 lefthook.ymlにcommit時等に実行したいコマンドを追加する
 以下のコマンドでインストールする
 ```bash
-yarn lefthook install
+lefthook install
 ```
